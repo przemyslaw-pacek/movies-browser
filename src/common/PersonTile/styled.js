@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import no_profile from '../../images/no profile.svg';
 
 export const PersonNavLink = styled(NavLink)`
     background: ${({ theme }) => theme.color.white};
@@ -36,11 +37,19 @@ export const Grid = styled.div`
 
 export const StyledImage = styled.img`
     width: 100%;
-    object-fit: cover;
     border-radius: 5px;
+
+    ${({ noImage }) => noImage && css`
+        padding-top: calc(100% * 264 / 177);
+        background-image: url("${no_profile}");
+        background-color: ${({ theme }) => theme.color.silver};
+        background-size: 32%;
+        background-position: center;
+        background-repeat: no-repeat;
+    `}
 `;
 
-export const Description = styled.div`
+export const Description = styled.section`
     text-align: center;
     word-break: break-word;
 `;

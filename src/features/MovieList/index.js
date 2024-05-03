@@ -2,7 +2,7 @@ import { MainTitle, Content } from './styled';
 import { MovieTile } from '../../common/MovieTile';
 import { Pagination } from '../../common/Pagination';
 import { usePopularMovies } from './usePopularMovies';
-import { useGenres } from '../../useGenres';
+import { useGenres } from '../../common/hooks/useGenres';
 import Loading from '../../common/Loading';
 import Error from '../../common/Error';
 import { Container } from '../../common/Container';
@@ -25,7 +25,7 @@ const MovieList = () => {
                         <Container>
                             <Content>
                                 <MainTitle>Popular movies</MainTitle>
-                                {movie_list && movie_list.map(movie => (
+                                {movie_list?.map(movie => (
                                     <MovieTile
                                         key={movie.id}
                                         id={movie.id}

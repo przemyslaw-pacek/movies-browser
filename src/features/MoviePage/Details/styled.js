@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import no_poster from '../../../images/no poster.svg';
 
-export const Wrapper = styled.article`
+export const Tile = styled.article`
     width: 100%;
     min-height: 544px;
     background: ${({ theme }) => theme.color.white};
@@ -9,7 +10,7 @@ export const Wrapper = styled.article`
     margin: auto;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.phone}) {
-        min-height: 292px;
+        min-height: unset;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -19,15 +20,23 @@ export const Wrapper = styled.article`
 `;
 
 export const Image = styled.img`
-    max-width: 312px;
-    max-height: 464px;
+    width: 312px;
+    height: 464px;
     margin: 0 40px 30px 0;
     float: left;
     border-radius: 5px;
 
+    ${({ noImage }) => noImage && css`
+        background-image: url("${no_poster}");
+        background-color: ${({ theme }) => theme.color.silver};
+        background-size: 32%;
+        background-position: center;
+        background-repeat: no-repeat;
+    `}
+
     @media(max-width: ${({ theme }) => theme.breakpoint.phone}) {
-        max-width: 114px;
-        max-height: 169px;
+        width: 114px;
+        height: 169px;
         margin: 0;
     }
 `;

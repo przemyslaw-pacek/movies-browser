@@ -13,7 +13,7 @@ export const StyledDanger = styled(Danger)`
     }
 `;
 
-export const ErrorMasege = styled.div`
+export const ErrorMasege = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;

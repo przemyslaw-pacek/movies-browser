@@ -1,6 +1,5 @@
-import { useScreenWidth } from '../../../useScreenWidth';
+import { useScreenWidth } from '../../../common/hooks/useScreenWidth';
 import star from '../../../images/star.svg';
-import no_poster from '../../../images/no poster.png';
 import {
     Content,
     Description,
@@ -14,24 +13,24 @@ import {
     Tags,
     Ten,
     Text,
+    Tile,
     Title,
     Vector,
     Votes,
-    Wrapper,
     Year
 } from './styled';
 import { useMovieDetails } from '../useMovieDetails';
 
 const Details = () => {
-    const screenWidth = useScreenWidth();
+    const isLargeScreen = useScreenWidth();
     const { movieDetails } = useMovieDetails();
     const movie = movieDetails.data;
 
     return (
-        <Wrapper>
-            {movie?.poster_path
-                ? <Image src={"https://image.tmdb.org/t/p/" + (screenWidth > 767 ? "w342" : "w154") + movie.poster_path} />
-                : <Image src={no_poster} />
+        <Tile>
+            {movie.poster_path
+                ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${movie.poster_path}`} />
+                : <Image noImage />
             }
             <Content>
                 <Title>{movie?.title}</Title>
@@ -45,7 +44,7 @@ const Details = () => {
                     <div>
                         <Info>Production:</Info>
                         {movie?.production_countries
-                            ? screenWidth > 767
+                            ? isLargeScreen
                                 ? movie.production_countries.map((production) => production.name).join(", ")
                                 : movie.production_countries.map((production) => production.iso_3166_1).join(", ")
                             : "Unknown"
@@ -87,7 +86,7 @@ const Details = () => {
                 }
             </Content>
             <Description>{movie?.overview}</Description>
-        </Wrapper>
+        </Tile>
     );
 };
 

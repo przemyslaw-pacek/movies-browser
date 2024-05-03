@@ -32,7 +32,7 @@ export const useMovieDetails = () => {
             finally {
                 setTimeout(() => {
                     setLoading(false);
-                }, 300);
+                }, 500);
             }
         };
 

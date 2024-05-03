@@ -23,7 +23,7 @@ const Top = () => {
     return (
         <BlackBar>
             <Wrapper>
-                <Poster src={"https://image.tmdb.org/t/p/original" + movie?.backdrop_path} />
+                <Poster src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} />
                 <Plexa src={plexa} />
                 <MainInfo>
                     <MainTitle>{movie?.title}</MainTitle>

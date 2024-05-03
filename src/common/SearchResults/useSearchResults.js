@@ -40,7 +40,7 @@ export const useSearchResults = () => {
                     console.error(error.message);
                 }
             }
-        }, 300);
+        }, 500);
 
         return () => clearTimeout(debounce);
     }, [query, isMoviesPage, currentPage]);

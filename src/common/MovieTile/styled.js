@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import no_poster from '../../images/no poster.svg';
 
 export const MovieNavLink = styled(NavLink)`
     background: ${({ theme }) => theme.color.white};
@@ -27,13 +28,21 @@ export const MovieNavLink = styled(NavLink)`
 `;
 
 export const Image = styled.img`
-    max-width: 292px;
-    max-height: 434px;
     border-radius: 5px;
 
+    ${({ noImage }) => noImage && css`
+        padding-top: calc(100% * 434 / 292);
+        background-image: url("${no_poster}");
+        background-color: ${({ theme }) => theme.color.silver};
+        background-size: 32%;
+        background-position: center;
+        background-repeat: no-repeat;
+    `}
+
     @media(max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
-        max-width: 114px;
-        max-height: 169px;
+        width: 114px;
+        height: 169px;
+        padding-top: unset;
     }
 `;
 

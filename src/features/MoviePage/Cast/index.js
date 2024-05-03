@@ -11,7 +11,7 @@ const Cast = () => {
             ? <>
                 <Grid>
                     <Title>Cast</Title>
-                    {movie_cast && movie_cast.map((person) => (
+                    {movie_cast?.map((person) => (
                         <PersonTile
                             key={person.credit_id}
                             id={person.id}

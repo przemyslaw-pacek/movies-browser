@@ -1,7 +1,7 @@
 import { Title, Grid } from './styled';
 import { MovieTile } from '../../../../common/MovieTile';
 import { usePersonCredits } from '../../usePersonCredits';
-import { useGenres } from '../../../../useGenres';
+import { useGenres } from '../../../../common/hooks/useGenres';
 
 export const PartOfCast = () => {
     const { personCredits } = usePersonCredits();
@@ -19,7 +19,7 @@ export const PartOfCast = () => {
                         ? <>
                             <Grid>
                                 <Title>Movies - Cast ({person_cast.length})</Title>
-                                {person_cast && person_cast.map((movie) => (
+                                {person_cast?.map((movie) => (
                                     <MovieTile
                                         key={movie.credit_id}
                                         id={movie.id}

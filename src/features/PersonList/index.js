@@ -23,7 +23,7 @@ export const PersonList = () => {
                             <Container>
                                 <Grid>
                                     <Heading>Popular people</Heading>
-                                    {people_list && people_list.map((person) => (
+                                    {people_list?.map((person) => (
                                         <PersonTile
                                             key={person.id}
                                             id={person.id}

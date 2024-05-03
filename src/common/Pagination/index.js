@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import { useScreenWidth } from "../../useScreenWidth";
+import { useScreenWidth } from "../hooks/useScreenWidth";
 import {
     Wrapper,
     Left,
@@ -14,8 +14,8 @@ import {
 } from "./styled";
 import { usePopularMovies } from "../../features/MovieList/usePopularMovies";
 import { usePopularPeople } from "../../features/PersonList/usePopularPeople";
-import { toMovies } from "../../routes";
-import { useSearchResults } from "../../features/SearchResults/useSearchResults";
+import { toMovies } from "../config/routes";
+import { useSearchResults } from "../SearchResults/useSearchResults";
 import { useQueryParameter } from "../Header/SearchBar/queryParameters";
 
 export const Pagination = ({ isMoviesPage }) => {
@@ -55,13 +55,13 @@ export const Pagination = ({ isMoviesPage }) => {
         }
     };
 
-    const screenWidth = useScreenWidth();
+    const isLargeScreen = useScreenWidth();
 
     return (
         <Wrapper>
             <ButtonSection>
                 <ButtonTile disabled={currentPage === 1} onClick={() => changePage(1)}>
-                    {screenWidth > 767 ? <Left /> : <><Left /><Left /></>}
+                    {isLargeScreen ? <Left /> : <><Left /><Left /></>}
                     <ButtonText>
                         First
                     </ButtonText>
@@ -98,7 +98,7 @@ export const Pagination = ({ isMoviesPage }) => {
                     <ButtonText>
                         Last
                     </ButtonText>
-                    {screenWidth > 767 ? <Right /> : <><Right /><Right /></>}
+                    {isLargeScreen ? <Right /> : <><Right /><Right /></>}
                 </ButtonTile>
             </ButtonSection>
         </Wrapper>

@@ -32,7 +32,7 @@ export const usePersonDetails = () => {
             finally {
                 setTimeout(() => {
                     setLoading(false);
-                }, 300);
+                }, 500);
 
             }
         };

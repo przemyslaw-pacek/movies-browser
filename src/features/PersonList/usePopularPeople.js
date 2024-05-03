@@ -55,7 +55,7 @@ export const usePopularPeople = () => {
             }
         };
 
-        setTimeout(getPopularPeople, 300);
+        setTimeout(getPopularPeople, 500);
     }, [url, currentPage]);
 
     return { popularPeople, totalPagesPeople };

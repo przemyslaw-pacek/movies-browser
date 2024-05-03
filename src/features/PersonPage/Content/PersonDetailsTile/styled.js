@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import no_profile from '../../../../images/no profile.svg';
 
 export const Tile = styled.article`
     min-height: 644px;
@@ -28,28 +29,47 @@ export const Tile = styled.article`
 `;
 
 export const Image = styled.img`
-    width: 399px;
+    width: auto;
     height: 564px;
     margin: 0 40px 30px 0;
     float: left;
     border-radius: 5px;
+
+    ${({ noImage }) => noImage && css`
+        width: 399px;
+        background-image: url("${no_profile}");
+        background-color: ${({ theme }) => theme.color.silver};
+        background-size: 32%;
+        background-position: center;
+        background-repeat: no-repeat;
+    `}
     
     @media(max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
-        width: 210px;
         height: 296px;
         margin: 0 32px 4px 0;
+
+        ${({ noImage }) => noImage && css`
+            width: 210px;
+        `}
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.phone}) {
-        width: 169px;
         height: 244px;
         margin: 0 24px 4px 0;
+        
+        ${({ noImage }) => noImage && css`
+            width: 169px;
+        `}
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
         width: 116px;
         height: 163px;
         margin: 0;
+ 
+        ${({ noImage }) => noImage && css`
+            width: 116px;
+        `}
     }
 `;
 
@@ -97,11 +117,11 @@ export const Birth = styled.div`
 
 export const Info = styled.span`
     color: ${({ theme }) => theme.color.stormGrey};
-    margin-right: 8px;
+    margin-right: 6px;
     line-height: 22px;
 
     @media(max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
-        margin-right: 5px;
+        margin-right: 4px;
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Content = styled.span`
+export const Content = styled.section`
     width: 1368px;
     display: grid;
     grid-template-columns: repeat(4, 324px);

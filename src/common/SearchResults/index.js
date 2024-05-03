@@ -3,7 +3,7 @@ import { Pagination } from '../../common/Pagination';
 import { Container } from '../../common/Container';
 import { useQueryParameter } from '../../common/Header/SearchBar/queryParameters';
 import { useSearchResults } from './useSearchResults';
-import { useGenres } from '../../useGenres';
+import { useGenres } from '../hooks/useGenres';
 import Loading from '../../common/Loading';
 import Error from '../../common/Error';
 import { MovieTile } from '../../common/MovieTile';
@@ -42,7 +42,7 @@ const SearchResults = () => {
                             <Container>
                                 <MainTitle>Search results for "{query}" ({search_quantity})</MainTitle>
                                 <Content>
-                                    {search_list && search_list.map(movie => (
+                                    {search_list?.map(movie => (
                                         <MovieTile
                                             key={movie.id}
                                             id={movie.id}
@@ -67,7 +67,7 @@ const SearchResults = () => {
                                 <Container>
                                     <MainTitle>Search results for "{query}" ({search_quantity})</MainTitle>
                                     <Grid>
-                                        {search_list && search_list.map((person) => (
+                                        {search_list?.map((person) => (
                                             <PersonTile
                                                 key={person.id}
                                                 id={person.id}

@@ -55,7 +55,7 @@ export const usePopularMovies = () => {
             }
         };
 
-        setTimeout(getPopularMovies, 300);
+        setTimeout(getPopularMovies, 500);
     }, [url, currentPage]);
 
     return { popularMovies, totalPagesMovies };

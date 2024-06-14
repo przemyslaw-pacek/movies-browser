@@ -14,28 +14,24 @@ const MoviePage = () => {
 
     return (
         <>
-            {loading === true ? (
+            {loading === true ?
                 <Loading />
-            )
-                : movieDetails.status === "error" ? (
+                : movieDetails.status === "error" ?
                     <Error />
-                )
-                    : (
-                        <>
-                            {movie.backdrop_path ?
-                                <Top />
-                                : null
-                            }
-                            <Container>
-                                <Details />
-                                <Cast />
-                                <Crew />
-                            </Container>
-                        </>
-                    )
+                    : <>
+                        {movie?.backdrop_path ?
+                            <Top />
+                            : null
+                        }
+                        <Container>
+                            <Details />
+                            <Cast />
+                            <Crew />
+                        </Container>
+                    </>
             }
         </>
-    )
+    );
 };
 
 export default MoviePage;

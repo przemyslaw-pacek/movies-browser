@@ -12,19 +12,15 @@ export const PersonPage = () => {
 
     return (
         <>
-            {loading === true ? (
-                <Loading />
-            )
-                : personDetails.status === "error" ? (
-                    <Error />
-                )
-                    : (
-                        <Container>
-                            <PersonDetailsTile />
-                            <PartOfCast />
-                            <PartOfCrew />
-                        </Container>
-                    )
+            {loading === true
+                ? <Loading />
+                : personDetails.status === "error"
+                    ? <Error />
+                    : <Container>
+                        <PersonDetailsTile />
+                        <PartOfCast />
+                        <PartOfCrew />
+                    </Container>
             }
         </>
     )

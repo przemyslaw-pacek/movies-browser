@@ -35,7 +35,7 @@ export const Image = styled.img`
     float: left;
     border-radius: 5px;
 
-    ${({ noImage }) => noImage && css`
+    ${({ $noImage }) => $noImage && css`
         width: 399px;
         background-image: url("${no_profile}");
         background-color: ${({ theme }) => theme.color.silver};
@@ -48,7 +48,7 @@ export const Image = styled.img`
         height: 296px;
         margin: 0 32px 4px 0;
 
-        ${({ noImage }) => noImage && css`
+        ${({ $noImage }) => $noImage && css`
             width: 210px;
         `}
     }
@@ -57,7 +57,7 @@ export const Image = styled.img`
         height: 244px;
         margin: 0 24px 4px 0;
         
-        ${({ noImage }) => noImage && css`
+        ${({ $noImage }) => $noImage && css`
             width: 169px;
         `}
     }
@@ -67,7 +67,7 @@ export const Image = styled.img`
         height: 163px;
         margin: 0;
  
-        ${({ noImage }) => noImage && css`
+        ${({ $noImage }) => $noImage && css`
             width: 116px;
         `}
     }

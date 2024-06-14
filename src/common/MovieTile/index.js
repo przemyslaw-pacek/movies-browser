@@ -24,7 +24,7 @@ export const MovieTile = ({ id, image, title, role, year, genres, rating, votes 
         <MovieNavLink to={toMovie({ id })}>
             {image
                 ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${image}`} />
-                : <Image noImage />
+                : <Image $noImage />
             }
             <Content>
                 <Title>{title}</Title>

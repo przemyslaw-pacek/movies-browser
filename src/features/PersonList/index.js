@@ -12,29 +12,24 @@ export const PersonList = () => {
 
     return (
         <>
-            {
-                popularPeople.status === "loading" ? (
-                    <Loading />
-                )
-                    : popularPeople.status === "error" ? (
-                        <Error />
-                    )
-                        : (
-                            <Container>
-                                <Grid>
-                                    <Heading>Popular people</Heading>
-                                    {people_list?.map((person) => (
-                                        <PersonTile
-                                            key={person.id}
-                                            id={person.id}
-                                            image={person.profile_path}
-                                            title={person.original_name}
-                                        />
-                                    ))}
-                                </Grid>
-                                <Pagination />
-                            </Container>
-                        )
+            {popularPeople.status === "loading"
+                ? <Loading />
+                : popularPeople.status === "error"
+                    ? <Error />
+                    : <Container>
+                        <Grid>
+                            <Heading>Popular people</Heading>
+                            {people_list?.map((person) => (
+                                <PersonTile
+                                    key={person.id}
+                                    id={person.id}
+                                    image={person.profile_path}
+                                    title={person.original_name}
+                                />
+                            ))}
+                        </Grid>
+                        <Pagination />
+                    </Container>
             }
         </>
     )

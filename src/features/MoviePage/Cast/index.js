@@ -4,14 +4,14 @@ import { useMovieCredits } from '../useMovieCredits';
 
 const Cast = () => {
     const { movieCredits } = useMovieCredits();
-    const movie_cast = movieCredits.data.cast;
+    const movie_cast = movieCredits.data?.cast;
 
     return (
         movie_cast && movie_cast.length !== 0
             ? <>
                 <Grid>
                     <Title>Cast</Title>
-                    {movie_cast?.map((person) => (
+                    {movie_cast.map((person) => (
                         <PersonTile
                             key={person.credit_id}
                             id={person.id}

@@ -36,7 +36,7 @@ export const StyledImage = styled.img`
     width: 100%;
     border-radius: 5px;
 
-    ${({ noImage }) => noImage && css`
+    ${({ $noImage }) => $noImage && css`
         padding-top: calc(100% * 264 / 177);
         background-image: url("${no_profile}");
         background-color: ${({ theme }) => theme.color.silver};

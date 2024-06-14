@@ -28,9 +28,9 @@ const Details = () => {
 
     return (
         <Tile>
-            {movie.poster_path
+            {movie?.poster_path
                 ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${movie.poster_path}`} />
-                : <Image noImage />
+                : <Image $noImage />
             }
             <Content>
                 <Title>{movie?.title}</Title>
@@ -87,7 +87,7 @@ const Details = () => {
             </Content>
             <Description>{movie?.overview}</Description>
         </Tile>
-    );
+    )
 };
 
 export default Details;

@@ -26,7 +26,7 @@ export const Image = styled.img`
     float: left;
     border-radius: 5px;
 
-    ${({ noImage }) => noImage && css`
+    ${({ $noImage }) => $noImage && css`
         background-image: url("${no_poster}");
         background-color: ${({ theme }) => theme.color.silver};
         background-size: 32%;

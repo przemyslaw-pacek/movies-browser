@@ -30,7 +30,7 @@ export const MovieNavLink = styled(NavLink)`
 export const Image = styled.img`
     border-radius: 5px;
 
-    ${({ noImage }) => noImage && css`
+    ${({ $noImage }) => $noImage && css`
         padding-top: calc(100% * 434 / 292);
         background-image: url("${no_poster}");
         background-color: ${({ theme }) => theme.color.silver};

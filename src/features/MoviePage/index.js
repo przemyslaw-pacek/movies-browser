@@ -8,21 +8,15 @@ import { useMovieDetails } from './useMovieDetails';
 import { Container } from '../../common/Container';
 
 const MoviePage = () => {
-    const { movieDetails } = useMovieDetails();
-    const movie = movieDetails.data;
-    const { loading } = useMovieDetails();
+    const { loading, movieDetails } = useMovieDetails();
 
     return (
         <>
-            {loading === true ?
-                <Loading />
+            {loading ? <Loading />
                 : movieDetails.status === "error" ?
                     <Error />
                     : <>
-                        {movie?.backdrop_path ?
-                            <Top />
-                            : null
-                        }
+                        <Top />
                         <Container>
                             <Details />
                             <Cast />

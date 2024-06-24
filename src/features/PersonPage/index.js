@@ -7,13 +7,11 @@ import Loading from "../../common/Loading";
 import Error from "../../common/Error";
 
 export const PersonPage = () => {
-    const { personDetails } = usePersonDetails();
-    const { loading } = usePersonDetails();
+    const { loading, personDetails } = usePersonDetails();
 
     return (
         <>
-            {loading === true
-                ? <Loading />
+            {loading ? <Loading />
                 : personDetails.status === "error"
                     ? <Error />
                     : <Container>

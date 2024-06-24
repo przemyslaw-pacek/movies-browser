@@ -15,15 +15,26 @@ import {
 import star from '../../../images/star.svg';
 import plexa from "../../../images/plexa.png";
 import { useMovieDetails } from '../useMovieDetails';
+import { useEffect, useState } from 'react';
 
 const Top = () => {
     const { movieDetails } = useMovieDetails();
     const movie = movieDetails.data;
 
-    return (
+    const [isPosterLoaded, setIsPosterLoaded] = useState(false);
+
+    useEffect(() => {
+        if (movie?.backdrop_path) {
+            const img = new Image();
+            img.src = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
+            img.onload = () => setIsPosterLoaded(true);
+        }
+    }, [movie?.backdrop_path]);
+
+    return movie?.backdrop_path && isPosterLoaded && (
         <BlackBar>
             <Wrapper>
-                <Poster src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} />
+                <Poster src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
                 <Plexa src={plexa} />
                 <MainInfo>
                     <MainTitle>{movie?.title}</MainTitle>
@@ -42,11 +53,9 @@ const Top = () => {
                                 {movie.vote_count === 1 ? " vote" : " votes"}
                             </Votes>
                         </Opinion>
-                        : movie?.backdrop_path
-                            ? <Opinion>
-                                <Votes>No votes yet</Votes>
-                            </Opinion>
-                            : null
+                        : <Opinion>
+                            <Votes>No votes yet</Votes>
+                        </Opinion>
                     }
 
                 </MainInfo>

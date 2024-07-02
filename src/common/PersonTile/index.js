@@ -5,7 +5,7 @@ export const PersonTile = ({ id, image, title, subtitle }) => (
     <PersonNavLink to={toPerson({ id })}>
         <Grid>
             {image
-                ? <StyledImage src={`https://image.tmdb.org/t/p/w185${image}`} />
+                ? <StyledImage src={`https://image.tmdb.org/t/p/w185${image}`} alt={title}/>
                 : <StyledImage $noImage />
             }
             <Description>

@@ -34,15 +34,15 @@ const Top = () => {
     return movie?.backdrop_path && isPosterLoaded && (
         <BlackBar>
             <Wrapper>
-                <Poster src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} />
-                <Plexa src={plexa} />
+                <Poster src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt={movie?.title}/>
+                <Plexa src={plexa} alt="background"/>
                 <MainInfo>
                     <MainTitle>{movie?.title}</MainTitle>
 
                     {movie?.vote_average
                         ? <Opinion>
                             <Rating>
-                                <Vector src={star} alt="" />
+                                <Vector src={star} alt="star" />
                                 <Text>{movie.vote_average.toFixed(1).replace(".", ",")}</Text>
                             </Rating>
                             <Ten>/ 10</Ten>

@@ -23,7 +23,7 @@ export const MovieTile = ({ id, image, title, role, year, genres, rating, votes 
     return (
         <MovieNavLink to={toMovie({ id })}>
             {image
-                ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${image}`} />
+                ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${image}`} alt={title} />
                 : <Image $noImage />
             }
             <Content>
@@ -51,7 +51,7 @@ export const MovieTile = ({ id, image, title, role, year, genres, rating, votes 
                 {votes
                     ? <Opinion>
                         <Rating>
-                            <Vector src={star} />
+                            <Vector src={star} alt="star"/>
                             <Text>{rating.toFixed(1).replace(".", ",")}</Text>
                         </Rating>
                         <Votes>

@@ -29,7 +29,7 @@ const Details = () => {
     return (
         <Tile>
             {movie?.poster_path
-                ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${movie.poster_path}`} />
+                ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${movie.poster_path}`} alt={movie?.title}/>
                 : <Image $noImage />
             }
             <Content>
@@ -67,7 +67,7 @@ const Details = () => {
                 {movie?.vote_average
                     ? <Opinion>
                         <Rating>
-                            <Vector src={star} alt="" />
+                            <Vector src={star} alt="star" />
                             <Text>{movie.vote_average.toFixed(1).replace(".", ",")}</Text>
                         </Rating>
                         <Ten>/ 10</Ten>

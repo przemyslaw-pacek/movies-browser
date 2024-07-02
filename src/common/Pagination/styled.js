@@ -71,7 +71,7 @@ export const Right = styled(Vector)`
 `;
 
 export const Left = styled(Right)`
-    rotate: 180deg;
+    transform: rotate(180deg);
 `;
 
 export const CounterWrapper = styled.span`

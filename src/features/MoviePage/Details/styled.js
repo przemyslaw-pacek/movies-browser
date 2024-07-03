@@ -133,7 +133,7 @@ export const Tag = styled.li`
     }
 `;
 
-export const Opinion = styled.span`
+export const Opinion = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;

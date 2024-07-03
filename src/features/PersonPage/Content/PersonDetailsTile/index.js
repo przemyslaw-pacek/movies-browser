@@ -19,7 +19,7 @@ export const PersonDetailsTile = () => {
         <Tile>
             {person?.profile_path
                 ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w500" : "w185"}${person.profile_path}`} alt={person?.name}/>
-                : <Image $noImage />
+                : <Image as="div" $noImage />
             }
             <PersonalData>
                 <Name>{person?.name}</Name>

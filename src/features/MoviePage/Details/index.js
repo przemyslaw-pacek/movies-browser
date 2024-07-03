@@ -30,7 +30,7 @@ const Details = () => {
         <Tile>
             {movie?.poster_path
                 ? <Image src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${movie.poster_path}`} alt={movie?.title}/>
-                : <Image $noImage />
+                : <Image as="div" $noImage />
             }
             <Content>
                 <Title>{movie?.title}</Title>

@@ -6,7 +6,7 @@ export const PersonTile = ({ id, image, title, subtitle }) => (
         <Grid>
             {image
                 ? <StyledImage src={`https://image.tmdb.org/t/p/w185${image}`} alt={title}/>
-                : <StyledImage $noImage />
+                : <StyledImage as="div" $noImage />
             }
             <Description>
                 <StyledTitle>{title}</StyledTitle>

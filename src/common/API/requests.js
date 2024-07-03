@@ -1,3 +1,3 @@
 export const url_front = "https://api.themoviedb.org/3";
 
-export const url_back = "?api_key=f34f6027eb3f2b88611be3cc5793a551&language=en-US";
+export const url_back = "?api_key=f72df20bf68647ff7dff3bdb20c36c7f&language=en-US";

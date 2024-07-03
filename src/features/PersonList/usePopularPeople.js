@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { url_back, url_front_person } from "../../common/API/requests";
+import { url_back, url_front } from "../../common/API/requests";
 
 export const usePopularPeople = () => {
     const location = useLocation();
@@ -10,7 +10,7 @@ export const usePopularPeople = () => {
 
     const [totalPagesPeople, setTotalPagesPeople] = useState(1);
 
-    const url = `${url_front_person}popular${url_back}`;
+    const url = `${url_front}/person/popular${url_back}`;
 
     const [popularPeople, setPopularPeople] = useState({
         status: "",

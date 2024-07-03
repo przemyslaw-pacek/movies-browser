@@ -137,7 +137,6 @@ export const Description = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
         font-size: 17px;
         line-height: 27px;
-        margin-top: 12;
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {

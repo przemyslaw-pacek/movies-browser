@@ -13,19 +13,17 @@ https://przemyslaw-pacek.github.io/movies-browser/
 ## Technologies 🛠️
 
 Project was created with technologies such as:
-* CSS
-* HTML
-* JavaScript (ES6+) features
-* BEM
-* Flexbox
-* Grid
-* Custom hooks
-* Styled components
-* Create React App
-* React-Redux
-* Redux-toolkit
-* React-Router
-* Axios
+
+- CSS
+- HTML
+- JavaScript (ES6+) features
+- Flexbox
+- Grid
+- Custom Hooks
+- Styled Components
+- Create React App
+- React Router
+- Axios
 
 Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -61,12 +59,12 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Authors 👥 
+## Authors 👥
 
-This project was created by: <br>*(in alphabetical order)*
+This project was created by: <br>_(in alphabetical order)_
 
-- [Bartosz Kasprzyk](https://github.com/bartek-kasprzyk)  
-- [Przemysław Pacek](https://github.com/doncochino)  
+- [Bartosz Kasprzyk](https://github.com/bartek-kasprzyk)
+- [Przemysław Pacek](https://github.com/doncochino)
 - [Vitalii](https://github.com/VITALIKXXX)
 
 Thank you for visiting our website!

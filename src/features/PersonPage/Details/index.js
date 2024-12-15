@@ -37,6 +37,12 @@ export const Details = ({ person }) => {
             <Info>Place of birth: </Info>
             {person.place_of_birth ? person.place_of_birth : "Unknown"}
           </div>
+          {person.deathday ? (
+            <div>
+              <Info>{isLargeScreen ? "Date of death: " : "Death: "}</Info>
+              {new Date(person.deathday).toLocaleDateString()}
+            </div>
+          ) : null}
         </Birth>
       </PersonalData>
       <Description>{person?.biography}</Description>

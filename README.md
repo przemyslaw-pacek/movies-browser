@@ -1,6 +1,6 @@
 # Movies Browser
 
-Powered by <a href="https://www.themoviedb.org/"><img src="/src/images/tmdb.jpg" alt="TMDB logo" width="100"></a>
+Powered by <a href="https://www.themoviedb.org/"><img src="./tmdb.jpg" alt="TMDB logo" width="100"></a>
 
 Explore a vast collection of movies and personalities with ease using this intuitive, user-friendly browser, which harnesses the power of the extensive TMDB database. Effortlessly browse through a wide range of movies and explore the world of cinema to gain valuable insights and make exciting discoveries.
 
@@ -24,6 +24,7 @@ Project was created with technologies such as:
 - Create React App
 - React Router
 - Axios
+- TanStack Query
 
 Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

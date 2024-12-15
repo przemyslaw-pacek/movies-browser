@@ -1,25 +1,49 @@
-import { PersonDetailsTile } from "./Content/PersonDetailsTile";
-import { PartOfCast } from "./Content/PartOfCast";
-import { PartOfCrew } from "./Content/PartOfCrew";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPersonCredits, fetchPersonDetails } from "./fetchPersonDetails";
+import { Loading } from "../../common/Loading";
+import { Error } from "../../common/Error";
 import { Container } from "../../common/Container";
-import { usePersonDetails } from "./usePersonDetails";
-import Loading from "../../common/Loading";
-import Error from "../../common/Error";
+import { Details } from "./Details";
+import { Cast } from "./Cast";
+import { Crew } from "./Crew";
 
 export const PersonPage = () => {
-    const { loading, personDetails } = usePersonDetails();
+  const { id } = useParams();
 
-    return (
-        <>
-            {loading ? <Loading />
-                : personDetails.status === "error"
-                    ? <Error />
-                    : <Container>
-                        <PersonDetailsTile />
-                        <PartOfCast />
-                        <PartOfCrew />
-                    </Container>
-            }
-        </>
-    )
+  const {
+    isLoading: detailsLoading,
+    error: detailsError,
+    data: personDetails,
+  } = useQuery({
+    queryKey: ["personDetails", id],
+    queryFn: () => fetchPersonDetails(id),
+    retry: false,
+  });
+
+  const {
+    isLoading: creditsLoading,
+    error: creditsError,
+    data: personCredits,
+  } = useQuery({
+    queryKey: ["personCredits", id],
+    queryFn: () => fetchPersonCredits(id),
+    retry: false,
+  });
+
+  if (detailsLoading || creditsLoading) {
+    return <Loading />;
+  }
+
+  if (detailsError || creditsError) {
+    return <Error />;
+  }
+
+  return (
+    <Container>
+      <Details person={personDetails} />
+      <Cast personCast={personCredits?.cast || []} />
+      <Crew personCrew={personCredits?.crew || []} />
+    </Container>
+  );
 };

@@ -1,87 +1,111 @@
-import { Content, Grid, MainTitle } from './styled';
-import { Pagination } from '../../common/Pagination';
-import { Container } from '../../common/Container';
-import { useQueryParameter } from '../../common/Header/SearchBar/queryParameters';
-import { useSearchResults } from './useSearchResults';
-import { useGenres } from '../hooks/useGenres';
-import Loading from '../../common/Loading';
-import Error from '../../common/Error';
-import { MovieTile } from '../../common/MovieTile';
-import NoResults from '../../common/NoResults';
-import { useLocation } from 'react-router-dom';
-import { PersonTile } from '../../common/PersonTile';
+import { useQueryParameter } from "../Header/SearchBar/queryParameters";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { fetchSearchResults } from "./fetchSearchResults";
+import { fetchGenres } from "../fetchGenres";
+import { Container } from "../Container";
+import { Content, Grid, MainTitle } from "./styled";
+import { Loading } from "../Loading";
+import { Error } from "..//Error";
+import { NoResults } from "./NoResults";
+import { MovieTile } from "../MovieTile";
+import { PersonTile } from "../PersonTile";
+import { Pagination } from "../Pagination";
 
-const SearchResults = () => {
-    const query = useQueryParameter("query");
+export const SearchResults = () => {
+  const query = useQueryParameter("query");
+  const [isLoadingDebounce, setIsLoadingDebounce] = useState(false);
 
-    const location = useLocation();
-    const isMoviesPage = location.pathname.startsWith("/movies");
+  const location = useLocation();
+  const isMoviesPage = location.pathname.startsWith("/movies");
+  const searchParams = new URLSearchParams(location.search);
+  const currentPage = parseInt(searchParams.get("page")) || 1;
 
-    const { searchResults } = useSearchResults();
-    const search_quantity = searchResults.data?.total_results;
-    const search_list = searchResults.data?.results;
+  useEffect(() => {
+    if (query) {
+      setIsLoadingDebounce(true);
+    }
 
-    const { genres } = useGenres();
-    const genre_list = genres.data;
+    const debounceTimeout = setTimeout(() => {
+      setIsLoadingDebounce(false);
+    }, 500);
 
-    return (
-        <>
-            {searchResults.status === "loading" ? (
-                <Container>
-                    <MainTitle>Search results for "{query}"</MainTitle>
-                    <Loading />
-                </Container>
-            )
-                : searchResults.status === "error" ? (
-                    <Error />
-                )
-                    : search_quantity === 0 ? (
-                        <NoResults />
-                    )
-                        : isMoviesPage ? (
-                            <Container>
-                                <MainTitle>Search results for "{query}" ({search_quantity})</MainTitle>
-                                <Content>
-                                    {search_list?.map(movie => (
-                                        <MovieTile
-                                            key={movie.id}
-                                            id={movie.id}
-                                            image={movie.poster_path}
-                                            title={movie.title}
-                                            year={movie.release_date}
-                                            genres={
-                                                movie.genre_ids.map((number) =>
-                                                    genre_list.find((item) =>
-                                                        item.id === number).name
-                                                )
-                                            }
-                                            rating={movie.vote_average}
-                                            votes={movie.vote_count}
-                                        />
-                                    ))}
-                                </Content>
-                                <Pagination />
-                            </Container>
-                        )
-                            : (
-                                <Container>
-                                    <MainTitle>Search results for "{query}" ({search_quantity})</MainTitle>
-                                    <Grid>
-                                        {search_list?.map((person) => (
-                                            <PersonTile
-                                                key={person.id}
-                                                id={person.id}
-                                                image={person.profile_path}
-                                                title={person.original_name}
-                                            />
-                                        ))}
-                                    </Grid>
-                                    <Pagination />
-                                </Container>
-                            )
-            }
-        </>
-    )
+    return () => clearTimeout(debounceTimeout);
+  }, [query]);
+
+  const {
+    isLoading: isLoadingQuery,
+    error,
+    data: searchResults,
+  } = useQuery({
+    queryKey: ["results", query, isMoviesPage, currentPage],
+    queryFn: () => fetchSearchResults(query, isMoviesPage, currentPage),
+    retry: false,
+  });
+
+  const isLoading = isLoadingDebounce || isLoadingQuery;
+  const search_quantity = searchResults?.total_results;
+  const search_list = searchResults?.results;
+
+  const { data: genres } = useQuery({
+    queryKey: ["genres"],
+    queryFn: fetchGenres,
+    retry: false,
+  });
+
+  return (
+    <>
+      {isLoading ? (
+        <Container>
+          <MainTitle>Search results for "{query}"</MainTitle>
+          <Loading />
+        </Container>
+      ) : error ? (
+        <Error />
+      ) : search_quantity === 0 ? (
+        <NoResults />
+      ) : isMoviesPage ? (
+        <Container>
+          <MainTitle>
+            Search results for "{query}" ({search_quantity})
+          </MainTitle>
+          <Content>
+            {search_list?.map((movie) => (
+              <MovieTile
+                key={movie.id}
+                id={movie.id}
+                image={movie.poster_path}
+                title={movie.title}
+                year={movie.release_date}
+                genres={movie.genre_ids.map(
+                  (number) => genres.find((item) => item.id === number).name
+                )}
+                rating={movie.vote_average}
+                votes={movie.vote_count}
+              />
+            ))}
+          </Content>
+          <Pagination />
+        </Container>
+      ) : (
+        <Container>
+          <MainTitle>
+            Search results for "{query}" ({search_quantity})
+          </MainTitle>
+          <Grid>
+            {search_list?.map((person) => (
+              <PersonTile
+                key={person.id}
+                id={person.id}
+                image={person.profile_path}
+                title={person.original_name}
+              />
+            ))}
+          </Grid>
+          <Pagination />
+        </Container>
+      )}
+    </>
+  );
 };
-
-export default SearchResults;

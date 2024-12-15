@@ -1,31 +1,53 @@
-import Top from './Top';
-import Cast from './Cast';
-import Crew from './Crew';
-import Loading from '../../common/Loading';
-import Error from '../../common/Error';
-import Details from './Details';
-import { useMovieDetails } from './useMovieDetails';
-import { Container } from '../../common/Container';
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useQuery } from "@tanstack/react-query";
+import { fetchMovieCredits, fetchMovieDetails } from "./fetchMovieDetails";
+import { Loading } from "../../common/Loading";
+import { Error } from "../../common/Error";
+import { Top } from "./Top";
+import { Container } from "../../common/Container";
+import { Details } from "./Details";
+import { Cast } from "./Cast";
+import { Crew } from "./Crew";
 
-const MoviePage = () => {
-    const { loading, movieDetails } = useMovieDetails();
+export const MoviePage = () => {
+  const { id } = useParams();
 
-    return (
-        <>
-            {loading ? <Loading />
-                : movieDetails.status === "error" ?
-                    <Error />
-                    : <>
-                        <Top />
-                        <Container>
-                            <Details />
-                            <Cast />
-                            <Crew />
-                        </Container>
-                    </>
-            }
-        </>
-    );
+  const {
+    isLoading: detailsLoading,
+    error: detailsError,
+    data: movieDetails,
+  } = useQuery({
+    queryKey: ["movieDetails", id],
+    queryFn: () => fetchMovieDetails(id),
+    retry: false,
+  });
+
+  const {
+    isLoading: creditsLoading,
+    error: creditsError,
+    data: movieCredits,
+  } = useQuery({
+    queryKey: ["movieCredits", id],
+    queryFn: () => fetchMovieCredits(id),
+    retry: false,
+  });
+
+  if (detailsLoading || creditsLoading) {
+    return <Loading />;
+  }
+
+  if (detailsError || creditsError) {
+    return <Error />;
+  }
+
+  return (
+    <>
+      <Top movie={movieDetails} />
+      <Container>
+        <Details movie={movieDetails} />
+        <Cast movieCast={movieCredits?.cast || []} />
+        <Crew movieCrew={movieCredits?.crew || []} />
+      </Container>
+    </>
+  );
 };
-
-export default MoviePage;

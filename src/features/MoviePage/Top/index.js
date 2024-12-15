@@ -31,7 +31,7 @@ export const Top = ({ movie }) => {
     <BlackBar>
       <Wrapper>
         <Poster
-          src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
           alt={movie.title}
           onLoad={handleBackdropLoad}
           style={{ opacity: isPosterLoaded ? 1 : 0 }}

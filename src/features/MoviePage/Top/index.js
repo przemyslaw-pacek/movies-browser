@@ -17,29 +17,24 @@ import star from "../../../common/MovieTile/star.svg";
 import plexa from "./plexa.png";
 
 export const Top = ({ movie }) => {
-  const [isPosterLoaded, setisPosterLoaded] = useState(false);
-
-  const handleBackdropLoad = () => {
-    setisPosterLoaded(true);
-  };
+  const url_img = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`;
+  const [isPosterLoaded, setIsPosterLoaded] = useState(false);
 
   useEffect(() => {
-    setisPosterLoaded(false);
-  }, [movie.backdrop_path]);
+    if (movie.backdrop_path) {
+      const img = new Image();
+      img.src = url_img;
+      img.onload = () => setIsPosterLoaded(true);
+    }
+  }, [movie.backdrop_path, url_img]);
 
-  return movie.backdrop_path ? (
+  return isPosterLoaded ? (
     <BlackBar>
       <Wrapper>
-        <Poster
-          src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
-          alt={movie.title}
-          onLoad={handleBackdropLoad}
-          style={{ opacity: isPosterLoaded ? 1 : 0 }}
-        />
+        <Poster src={url_img} alt={movie.title} />
         <Plexa src={plexa} alt="background" />
         <MainInfo>
-          <MainTitle>{movie?.title}</MainTitle>
-
+          <MainTitle>{movie.title}</MainTitle>
           {movie.vote_average ? (
             <Opinion>
               <Rating>

@@ -41,7 +41,7 @@ export const ButtonTile = styled.button`
 
   &:disabled {
     color: ${({ theme }) => theme.color.waterloo};
-    background-color: ${({ theme }) => theme.color.mystic};
+    background: ${({ theme }) => theme.color.mystic};
     cursor: default;
   }
 `;

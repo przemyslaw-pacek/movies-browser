@@ -47,7 +47,7 @@ export const Recomendation = styled.h2`
 export const Button = styled(NavLink)`
   padding: 16px 24px 16px 24px;
   border-radius: 5px;
-  background-color: ${({ theme }) => theme.color.scienceBlue};
+  background: ${({ theme }) => theme.color.scienceBlue};
   color: ${({ theme }) => theme.color.white};
   border: none;
   text-decoration: none;

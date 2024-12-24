@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPopularMovies } from "./fetchPopularMovies";
-import { fetchGenres } from "../../common/fetchGenres";
+import { fetchGenres } from "../../common/fetchData";
 import { MainTitle, Content } from "./styled";
 import { MovieTile } from "../../common/MovieTile";
 import { Pagination } from "../../common/Pagination";

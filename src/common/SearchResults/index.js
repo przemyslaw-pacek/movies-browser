@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchSearchResults } from "./fetchSearchResults";
-import { fetchGenres } from "../fetchGenres";
+import { fetchGenres } from "../fetchData";
 import { Container } from "../Container";
 import { Content, Grid, MainTitle } from "./styled";
 import { Loading } from "../Loading";

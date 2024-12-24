@@ -1,7 +1,6 @@
-import axios from "axios";
-import { url_base, url_key } from "../../common/api";
+import { fetchData } from "../../common/fetchData";
 
 export const fetchPopularMovies = (currentPage) =>
-  axios
-    .get(`${url_base}/movie/popular${url_key}&page=${currentPage}`)
-    .then((response) => response.data.results);
+  fetchData("movie/popular", { page: currentPage }).then(
+    (data) => data.results
+  );

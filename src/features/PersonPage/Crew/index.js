@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchGenres } from "../../../common/fetchGenres";
+import { fetchGenres } from "../../../common/fetchData";
 import { Title, Grid } from "./styled";
 import { MovieTile } from "../../../common/MovieTile";
 

@@ -9,7 +9,7 @@ import {
 } from "./styled";
 
 export const PersonTile = ({ id, image, title, subtitle }) => (
-  <PersonNavLink to={toPerson({ id })}>
+  <PersonNavLink to={toPerson(id)}>
     <Grid>
       {image ? (
         <StyledImage

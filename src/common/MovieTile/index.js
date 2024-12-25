@@ -30,7 +30,7 @@ export const MovieTile = ({
   const isLargeScreen = useScreenWidth();
 
   return (
-    <MovieNavLink to={toMovie({ id })}>
+    <MovieNavLink to={toMovie(id)}>
       {image ? (
         <Image
           src={`https://image.tmdb.org/t/p/${

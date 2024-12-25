@@ -51,11 +51,11 @@ function App() {
           <SearchResults />
         </Route>
 
-        <Route path={toMovie()}>
+        <Route path={toMovie(":id")}>
           <MoviePage />
         </Route>
 
-        <Route path={toPerson()}>
+        <Route path={toPerson(":id")}>
           <PersonPage />
         </Route>
 

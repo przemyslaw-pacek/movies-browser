@@ -40,7 +40,7 @@ export const MovieList = () => {
         <Container>
           <Content>
             <MainTitle>Popular movies</MainTitle>
-            {movies.map((movie) => (
+            {movies.results.map((movie) => (
               <MovieTile
                 key={movie.id}
                 id={movie.id}

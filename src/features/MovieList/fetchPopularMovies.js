@@ -1,6 +1,4 @@
 import { fetchData } from "../../common/fetchData";
 
 export const fetchPopularMovies = (currentPage) =>
-  fetchData("movie/popular", { page: currentPage }).then(
-    (data) => data.results
-  );
+  fetchData("movie/popular", { page: currentPage });

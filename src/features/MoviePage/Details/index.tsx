@@ -46,7 +46,7 @@ export const Details = ({ movie }: { movie: Movie }) => {
         <Production>
           <div>
             <Info>Production:</Info>
-            {movie.production_countries
+            {movie.production_countries.length > 0
               ? isLargeScreen
                 ? movie.production_countries
                     .map((production) => production.name)

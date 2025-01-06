@@ -39,9 +39,7 @@ export const Details = ({ movie }: { movie: Movie }) => {
       <Content>
         <Title>{movie.title}</Title>
         <Year>
-          {movie.release_date
-            ? new Date(movie.release_date).getFullYear()
-            : null}
+          {movie.release_date && new Date(movie.release_date).getFullYear()}
         </Year>
         <Production>
           <div>
@@ -76,7 +74,7 @@ export const Details = ({ movie }: { movie: Movie }) => {
             </Rating>
             <Ten>/ 10</Ten>
             <Votes>
-              {movie.vote_count?.toLocaleString(undefined, {
+              {movie.vote_count.toLocaleString(undefined, {
                 useGrouping: true,
               })}
               {movie.vote_count === 1 ? " vote" : " votes"}

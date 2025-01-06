@@ -56,14 +56,14 @@ export const MovieTile = ({
         </Subtitle>
 
         <Tags>
-          {genres ? genres.map((item) => <Tag key={item}>{item}</Tag>) : ""}
+          {genres ? genres.map((genre) => <Tag key={genre}>{genre}</Tag>) : ""}
         </Tags>
 
         {votes ? (
           <Opinion>
             <Rating>
               <Vector src={star} alt="star" />
-              <Text>{rating ? rating.toFixed(1).replace(".", ",") : null}</Text>
+              <Text>{rating && rating.toFixed(1).replace(".", ",")}</Text>
             </Rating>
             <Votes>
               {votes.toLocaleString(undefined, {

@@ -31,7 +31,7 @@ export const Details = ({ movie }: { movie: Movie }) => {
           src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${
             movie.poster_path
           }`}
-          alt={movie?.title}
+          alt={movie.title}
         />
       ) : (
         <Image as="div" $noImage />
@@ -63,7 +63,9 @@ export const Details = ({ movie }: { movie: Movie }) => {
         </Production>
         <Tags>
           {movie.genres && movie.genres.length > 0
-            ? movie.genres.map((item) => <Tag key={item.id}>{item.name}</Tag>)
+            ? movie.genres.map((genre) => (
+                <Tag key={genre.id}>{genre.name}</Tag>
+              ))
             : null}
         </Tags>
         {movie.vote_average ? (

@@ -26,7 +26,7 @@ export const Cast = ({ personCast }: { personCast: Movie[] }) => {
             (number) =>
               genres &&
               genres.find(
-                (item: { id: number; name: string }) => item.id === number
+                (genre: { id: number; name: string }) => genre.id === number
               ).name
           )}
           rating={movie.vote_average}

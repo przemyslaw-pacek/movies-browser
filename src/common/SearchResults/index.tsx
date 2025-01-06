@@ -82,7 +82,8 @@ export const SearchResults = () => {
                 genres={movie.genre_ids.map(
                   (number) =>
                     genres.find(
-                      (item: { id: number; name: string }) => item.id === number
+                      (genre: { id: number; name: string }) =>
+                        genre.id === number
                     ).name
                 )}
                 rating={movie.vote_average}

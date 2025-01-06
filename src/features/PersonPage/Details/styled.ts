@@ -31,7 +31,7 @@ export const Tile = styled.article`
 export const Image = styled.img<{
   $noImage?: boolean;
 }>`
-  width: auto;
+  width: 399px;
   height: 564px;
   margin: 0 40px 30px 0;
   float: left;
@@ -40,7 +40,6 @@ export const Image = styled.img<{
   ${({ $noImage }) =>
     $noImage &&
     css`
-      width: 399px;
       background-image: url("${no_profile}");
       background-color: ${({ theme }) => theme.color.silver};
       background-size: 32%;
@@ -49,37 +48,21 @@ export const Image = styled.img<{
     `}
 
   @media(max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
+    width: 210px;
     height: 296px;
     margin: 0 32px 4px 0;
-
-    ${({ $noImage }) =>
-      $noImage &&
-      css`
-        width: 210px;
-      `}
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
+    width: 169px;
     height: 244px;
     margin: 0 24px 4px 0;
-
-    ${({ $noImage }) =>
-      $noImage &&
-      css`
-        width: 169px;
-      `}
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     width: 116px;
     height: 163px;
     margin: 0;
-
-    ${({ $noImage }) =>
-      $noImage &&
-      css`
-        width: 116px;
-      `}
   }
 `;
 

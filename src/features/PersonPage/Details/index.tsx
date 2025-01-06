@@ -29,21 +29,29 @@ export const Details = ({ person }: { person: Person }) => {
         <Name>{person.name}</Name>
         <Birth>
           <div>
-            <Info>{isLargeScreen ? "Date of birth: " : "Birth: "}</Info>
-            {person.birthday
-              ? new Date(person.birthday).toLocaleDateString()
-              : "Unknown"}
+            {person.birthday && (
+              <>
+                <Info>{isLargeScreen ? "Date of birth: " : "Birth: "}</Info>
+                {new Date(person.birthday).toLocaleDateString()}
+              </>
+            )}
           </div>
           <div>
-            <Info>Place of birth: </Info>
-            {person.place_of_birth || "Unknown"}
+            {person.place_of_birth && (
+              <>
+                <Info>Place of birth: </Info>
+                {person.place_of_birth}
+              </>
+            )}
           </div>
-          {person.deathday && (
-            <div>
-              <Info>{isLargeScreen ? "Date of death: " : "Death: "}</Info>
-              {new Date(person.deathday).toLocaleDateString()}
-            </div>
-          )}
+          <div>
+            {person.deathday && (
+              <>
+                <Info>{isLargeScreen ? "Date of death: " : "Death: "}</Info>
+                {new Date(person.deathday).toLocaleDateString()}
+              </>
+            )}
+          </div>
         </Birth>
       </PersonalData>
       <Description>{person.biography}</Description>

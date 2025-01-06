@@ -43,50 +43,54 @@ export const Details = ({ movie }: { movie: Movie }) => {
         </Year>
         <Production>
           <div>
-            <Info>Production:</Info>
-            {movie.production_countries.length > 0
-              ? isLargeScreen
-                ? movie.production_countries
-                    .map((production) => production.name)
-                    .join(", ")
-                : movie.production_countries
-                    .map((production) => production.iso_3166_1)
-                    .join(", ")
-              : "Unknown"}
+            {movie.production_countries.length > 0 && (
+              <>
+                <Info>Production:</Info>
+                {isLargeScreen
+                  ? movie.production_countries
+                      .map((production) => production.name)
+                      .join(", ")
+                  : movie.production_countries
+                      .map((production) => production.iso_3166_1)
+                      .join(", ")}
+              </>
+            )}
           </div>
           <div>
-            <Info>Release date:</Info>
-            {movie.release_date
-              ? new Date(movie.release_date).toLocaleDateString()
-              : "Unknown"}
+            {movie.release_date && (
+              <>
+                <Info>Release date:</Info>
+                {new Date(movie.release_date).toLocaleDateString()}
+              </>
+            )}
           </div>
         </Production>
-        <Tags>
-          {movie.genres && movie.genres.length > 0
-            ? movie.genres.map((genre) => (
-                <Tag key={genre.id}>{genre.name}</Tag>
-              ))
-            : null}
-        </Tags>
-        {movie.vote_average ? (
-          <Opinion>
-            <Rating>
-              <Vector src={star} alt="star" />
-              <Text>{movie.vote_average.toFixed(1).replace(".", ",")}</Text>
-            </Rating>
-            <Ten>/ 10</Ten>
-            <Votes>
-              {movie.vote_count.toLocaleString(undefined, {
-                useGrouping: true,
-              })}
-              {movie.vote_count === 1 ? " vote" : " votes"}
-            </Votes>
-          </Opinion>
-        ) : (
-          <Opinion>
-            <NoVotes> No votes yet</NoVotes>
-          </Opinion>
+        {movie.genres.length > 0 && (
+          <Tags>
+            {movie.genres.map((genre) => (
+              <Tag key={genre.id}>{genre.name}</Tag>
+            ))}
+          </Tags>
         )}
+        <Opinion>
+          {movie.vote_average ? (
+            <>
+              <Rating>
+                <Vector src={star} alt="star" />
+                <Text>{movie.vote_average.toFixed(1).replace(".", ",")}</Text>
+              </Rating>
+              <Ten>/ 10</Ten>
+              <Votes>
+                {movie.vote_count.toLocaleString(undefined, {
+                  useGrouping: true,
+                })}
+                {movie.vote_count === 1 ? " vote" : " votes"}
+              </Votes>
+            </>
+          ) : (
+            <NoVotes>No votes yet</NoVotes>
+          )}
+        </Opinion>
       </Content>
       <Description>{movie.overview}</Description>
     </Tile>

@@ -72,7 +72,7 @@ export const SearchResults = () => {
             Search results for "{query}" ({search_quantity})
           </MainTitle>
           <Content>
-            {search_list?.map((movie: Movie) => (
+            {search_list.map((movie: Movie) => (
               <MovieTile
                 key={movie.id}
                 id={movie.id}

@@ -31,7 +31,7 @@ export const Details = ({ person }: { person: Person }) => {
           <div>
             {person.birthday && (
               <>
-                <Info>{isLargeScreen ? "Date of birth: " : "Birth: "}</Info>
+                <Info>{isLargeScreen ? "Date of birth:" : "Birth:"}</Info>
                 {new Date(person.birthday).toLocaleDateString()}
               </>
             )}
@@ -39,7 +39,7 @@ export const Details = ({ person }: { person: Person }) => {
           <div>
             {person.place_of_birth && (
               <>
-                <Info>Place of birth: </Info>
+                <Info>Place of birth:</Info>
                 {person.place_of_birth}
               </>
             )}
@@ -47,7 +47,7 @@ export const Details = ({ person }: { person: Person }) => {
           <div>
             {person.deathday && (
               <>
-                <Info>{isLargeScreen ? "Date of death: " : "Death: "}</Info>
+                <Info>{isLargeScreen ? "Date of death:" : "Death:"}</Info>
                 {new Date(person.deathday).toLocaleDateString()}
               </>
             )}

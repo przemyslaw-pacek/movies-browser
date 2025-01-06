@@ -110,15 +110,15 @@ export const Birth = styled.div`
 
 export const Info = styled.span`
   color: ${({ theme }) => theme.color.stormGrey};
-  margin-right: 6px;
+  margin-right: 8px;
   line-height: 22px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
-    margin-right: 4px;
+    margin-right: 6px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
-    margin-right: 2px;
+    margin-right: 4px;
     line-height: 16px;
   }
 `;

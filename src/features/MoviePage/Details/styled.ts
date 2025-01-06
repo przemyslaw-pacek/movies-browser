@@ -104,7 +104,11 @@ export const Production = styled.div`
 
 export const Info = styled.span`
   color: ${({ theme }) => theme.color.stormGrey};
-  margin: 0 8px 6px 0;
+  margin-right: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
+    margin-right: 6px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     display: none;

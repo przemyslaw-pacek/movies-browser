@@ -89,21 +89,22 @@ export const Year = styled.div`
 
 export const Production = styled.div`
   font-size: 18px;
+  line-height: 28px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    font-size: 15px;
+    line-height: 24px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 12px;
-    line-height: 22px;
+    line-height: 20px;
   }
 `;
 
 export const Info = styled.span`
   color: ${({ theme }) => theme.color.stormGrey};
   margin: 0 8px 6px 0;
-  line-height: 28px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    line-height: 22px;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     display: none;
@@ -199,7 +200,7 @@ export const Votes = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     color: ${({ theme }) => theme.color.waterloo};
-    font-size: 13px;
+    font-size: 12px;
     line-height: 0;
     margin: 0 -2px 0 -22px;
   }
@@ -208,12 +209,11 @@ export const Votes = styled.span`
 export const NoVotes = styled.span`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 14px;
-  line-height: 37px;
-  margin: 9px 12px 3px 0;
+  line-height: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    font-size: 13px;
-    line-height: 0;
+    font-size: 12px;
+    line-height: 10px;
     margin-left: 8px;
   }
 `;

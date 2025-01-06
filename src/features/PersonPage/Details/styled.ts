@@ -119,6 +119,7 @@ export const Info = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     margin-right: 2px;
+    line-height: 16px;
   }
 `;
 

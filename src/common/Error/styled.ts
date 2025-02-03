@@ -23,7 +23,7 @@ export const ErrorMasege = styled.section`
 export const Warning = styled.h1`
   font-weight: 600;
   font-size: 36px;
-  line-height: 43.2px;
+  line-height: 1.2;
   margin: auto;
   text-align: center;
 
@@ -35,7 +35,7 @@ export const Warning = styled.h1`
 export const Recomendation = styled.h2`
   font-weight: 500;
   font-size: 22px;
-  line-height: 28.6px;
+  line-height: 1.3;
   text-align: center;
   margin: auto;
 

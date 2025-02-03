@@ -47,9 +47,8 @@ export const ButtonTile = styled.button`
 `;
 
 export const ButtonText = styled.span`
-  font-size: 14px;
-  font-weight: 400;
   color: ${({ theme }) => theme.color.mineShaft};
+  font-size: 14px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     display: none;
@@ -57,9 +56,6 @@ export const ButtonText = styled.span`
 `;
 
 export const Right = styled(Vector)`
-  width: 7px;
-  height: 11px;
-
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     width: 5px;
     height: 8px;
@@ -77,29 +73,18 @@ export const Left = styled(Right)`
 export const CounterWrapper = styled.span`
   display: flex;
   gap: 8px;
+  line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     gap: 2px;
+    font-size: 10px;
   }
 `;
 
 export const CounterNumber = styled.span`
   font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    font-size: 10px;
-  }
 `;
 
 export const CounterText = styled.span`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
   color: ${({ theme }) => theme.color.waterloo};
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    font-size: 10px;
-  }
 `;

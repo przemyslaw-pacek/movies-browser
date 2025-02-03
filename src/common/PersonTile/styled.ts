@@ -58,34 +58,29 @@ export const Description = styled.section`
 export const StyledTitle = styled.div`
   font-size: 22px;
   font-weight: 500;
-  line-height: 29px;
+  line-height: 1.3;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 18px;
-    line-height: 23px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 14px;
-    line-height: 18px;
   }
 `;
 
 export const StyledSubtitle = styled.div`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 18px;
-  font-weight: 400;
-  line-height: 29px;
+  line-height: 1.5;
   margin-top: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 15px;
-    line-height: 23px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 13px;
-    line-height: 18px;
     margin-top: 3px;
   }
 `;

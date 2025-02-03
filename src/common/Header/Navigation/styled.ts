@@ -35,17 +35,12 @@ export const LogoWrapper = styled(Link)`
 `;
 
 export const LogoIcon = styled(Video)`
-  width: 40px;
-  height: 40px;
-
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 28px;
-    height: 28px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     width: 17px;
-    height: 17px;
   }
 `;
 
@@ -88,7 +83,7 @@ export const NavSection = styled.ul`
 export const StyledNavLink = styled(NavLink)`
   font-weight: 600;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 1.5;
   color: ${({ theme }) => theme.color.white};
   text-decoration: none;
   float: left;
@@ -96,13 +91,11 @@ export const StyledNavLink = styled(NavLink)`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 13px;
-    line-height: 19.5px;
-    padding: 10.75px 18px;
+    padding: 10px 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 10px;
-    line-height: 18px;
     padding: 8px 12px;
   }
 

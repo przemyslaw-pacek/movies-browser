@@ -73,19 +73,17 @@ export const PersonalData = styled.div`
 export const Name = styled.header`
   font-weight: 600;
   font-size: 36px;
-  line-height: 43px;
+  line-height: 1.2;
   margin: 8px 0 24px 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
     font-size: 25px;
-    line-height: 30px;
     margin: 6px 0 20px 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-weight: 500;
     font-size: 14px;
-    line-height: 18px;
     margin: 4px 0 16px 0;
   }
 `;
@@ -95,23 +93,21 @@ export const Birth = styled.div`
   flex-direction: column;
   gap: 8px;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
     font-size: 15px;
-    gap: 2px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 12px;
-    line-height: 14px;
+    gap: 6px;
   }
 `;
 
 export const Info = styled.span`
   color: ${({ theme }) => theme.color.stormGrey};
   margin-right: 8px;
-  line-height: 22px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
     margin-right: 6px;
@@ -119,24 +115,21 @@ export const Info = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     margin-right: 4px;
-    line-height: 16px;
   }
 `;
 
 export const Description = styled.div`
   font-size: 20px;
-  line-height: 32px;
+  line-height: 1.6;
   margin-top: 24px;
   word-break: break-word;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
     font-size: 17px;
-    line-height: 27px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 14px;
-    line-height: 22px;
     margin-top: 0;
   }
 `;

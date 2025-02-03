@@ -116,7 +116,6 @@ export const Rating = styled.div`
 export const Vector = styled.img`
   width: 40px;
   height: 40px;
-  margin: 2.5px 0 2.5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 24px;
@@ -133,12 +132,11 @@ export const Vector = styled.img`
 export const Text = styled.div`
   font-size: 30px;
   font-weight: 500;
-  line-height: 50px;
+  line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
     font-weight: 600;
-    line-height: 30px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {

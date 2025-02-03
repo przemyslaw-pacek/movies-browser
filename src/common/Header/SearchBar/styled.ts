@@ -44,18 +44,11 @@ export const SearchIcon = styled(Search)`
 export const SearchInput = styled.input`
   flex-grow: 1;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 1.3;
   border: none;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    font-size: 14.5px;
-    line-height: 20px;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 13px;
-    line-height: 17px;
   }
 
   &::placeholder {

@@ -109,6 +109,7 @@ export const Tag = styled.li`
 
 export const Opinion = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   line-height: 1.5;
   gap: 12px;

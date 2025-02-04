@@ -5,14 +5,11 @@ import {
   Description,
   Image,
   Info,
-  NoVotes,
   Opinion,
   Production,
   Rating,
   Tag,
   Tags,
-  Ten,
-  Text,
   Tile,
   Title,
   Vector,
@@ -75,11 +72,9 @@ export const Details = ({ movie }: { movie: Movie }) => {
         <Opinion>
           {movie.vote_average ? (
             <>
-              <Rating>
-                <Vector src={star} alt="star" />
-                <Text>{movie.vote_average.toFixed(1).replace(".", ",")}</Text>
-              </Rating>
-              <Ten>/ 10</Ten>
+              <Vector src={star} alt="star" />
+              <Rating>{movie.vote_average.toFixed(1).replace(".", ",")}</Rating>
+              <Votes $hidden>/ 10</Votes>
               <Votes>
                 {movie.vote_count.toLocaleString(undefined, {
                   useGrouping: true,
@@ -88,7 +83,7 @@ export const Details = ({ movie }: { movie: Movie }) => {
               </Votes>
             </>
           ) : (
-            <NoVotes>No votes yet</NoVotes>
+            <Votes>No votes yet</Votes>
           )}
         </Opinion>
       </Content>

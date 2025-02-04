@@ -89,16 +89,14 @@ export const Year = styled.div`
 
 export const Production = styled.div`
   font-size: 18px;
-  line-height: 28px;
+  line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 15px;
-    line-height: 24px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 12px;
-    line-height: 20px;
   }
 `;
 
@@ -125,8 +123,7 @@ export const Tags = styled.ul`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     gap: 8px;
-    margin-top: 4px;
-    margin-bottom: 18px;
+    margin: 4px 0 8px 0;
   }
 `;
 
@@ -145,98 +142,66 @@ export const Tag = styled.li`
 export const Opinion = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
-  margin: 8px -8px 12px;
-`;
-
-export const Rating = styled.div`
-  display: flex;
+  align-items: baseline;
   gap: 8px;
-  width: 64px;
-  height: 29px;
-  margin: 9px 8px 3px 0;
+  margin-top: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: -12.4px 8px -4px;
+    align-items: center;
+    margin-top: 8px;
   }
 `;
 
 export const Vector = styled.img`
-  margin: 2.5px 0;
+  align-self: start;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     width: 16px;
-    height: 16px;
   }
 `;
 
-export const Text = styled.span`
-  font-size: 22px;
+export const Rating = styled.span`
   font-weight: 500;
-  line-height: 32px;
+  font-size: 22px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    font-size: 13px;
-    line-height: 24.6px;
     font-weight: 600;
+    font-size: 13px;
   }
 `;
 
-export const Ten = styled.span`
+export const Votes = styled.span<{
+  $hidden?: boolean;
+}>`
   font-size: 14px;
-  line-height: 37px;
-  margin: 9px 4px 3px 0;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    display: none;
-    font-size: 12px;
-    line-height: 32px;
-    margin: 10px 12px 3px -14px;
-  }
-`;
-
-export const Votes = styled.span`
-  font-size: 14px;
-  line-height: 37px;
-  margin: 9px 12px 3px 8px;
+  line-height: 1.5;
+  padding-right: 4px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     color: ${({ theme }) => theme.color.waterloo};
     font-size: 12px;
-    line-height: 0;
-    margin: 0 -2px 0 -22px;
-  }
-`;
 
-export const NoVotes = styled.span`
-  color: ${({ theme }) => theme.color.waterloo};
-  font-size: 14px;
-  line-height: 40px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    font-size: 12px;
-    line-height: 10px;
-    margin-left: 8px;
+    ${({ $hidden }) =>
+      $hidden &&
+      css`
+        display: none;
+      `}
   }
 `;
 
 export const Description = styled.div`
   font-size: 20px;
-  line-height: 32px;
-  margin-top: 12px;
+  line-height: 1.6;
+  margin-top: 20px;
   word-break: break-word;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 17px;
-    line-height: 27px;
-    margin-top: 8px;
+    margin-top: 16px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 14px;
-    line-height: 22px;
-    margin-top: -10px;
+    margin-top: -6px;
   }
 `;

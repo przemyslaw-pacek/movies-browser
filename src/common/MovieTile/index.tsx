@@ -5,13 +5,11 @@ import {
   Rating,
   Tag,
   Tags,
-  Text,
   Title,
   Vector,
   Votes,
   Subtitle,
   MovieNavLink,
-  NoVotes,
 } from "./styled";
 import star from "./star.svg";
 import { useScreenWidth } from "../useScreenWidth";
@@ -59,24 +57,22 @@ export const MovieTile = ({
           {genres ? genres.map((genre) => <Tag key={genre}>{genre}</Tag>) : ""}
         </Tags>
 
-        {votes ? (
-          <Opinion>
-            <Rating>
+        <Opinion>
+          {votes ? (
+            <>
               <Vector src={star} alt="star" />
-              <Text>{rating && rating.toFixed(1).replace(".", ",")}</Text>
-            </Rating>
-            <Votes>
-              {votes.toLocaleString(undefined, {
-                useGrouping: true,
-              })}
-              {votes === 1 ? " vote" : " votes"}
-            </Votes>
-          </Opinion>
-        ) : (
-          <Opinion>
-            <NoVotes>No votes yet</NoVotes>
-          </Opinion>
-        )}
+              <Rating>{rating && rating.toFixed(1).replace(".", ",")}</Rating>
+              <Votes>
+                {votes.toLocaleString(undefined, {
+                  useGrouping: true,
+                })}
+                {votes === 1 ? " vote" : " votes"}
+              </Votes>
+            </>
+          ) : (
+            <Votes>No votes yet</Votes>
+          )}
+        </Opinion>
       </Content>
     </MovieNavLink>
   );

@@ -5,9 +5,7 @@ import {
   MainTitle,
   Opinion,
   Rating,
-  Ten,
   Votes,
-  Text,
   Vector,
   Poster,
   Plexa,
@@ -34,25 +32,25 @@ export const Top = ({ movie }: { movie: Movie }) => {
         <Plexa src={plexa} alt="background" />
         <MainInfo>
           <MainTitle>{movie.title}</MainTitle>
-          {movie.vote_average ? (
-            <Opinion>
-              <Rating>
+          <Opinion>
+            {movie.vote_average ? (
+              <>
                 <Vector src={star} alt="star" />
-                <Text>{movie.vote_average.toFixed(1).replace(".", ",")}</Text>
-              </Rating>
-              <Ten>/ 10</Ten>
-              <Votes>
-                {movie.vote_count.toLocaleString(undefined, {
-                  useGrouping: true,
-                })}
-                {movie.vote_count === 1 ? " vote" : " votes"}
-              </Votes>
-            </Opinion>
-          ) : (
-            <Opinion>
+                <Rating>
+                  {movie.vote_average.toFixed(1).replace(".", ",")}
+                </Rating>
+                <Votes>/ 10</Votes>
+                <Votes>
+                  {movie.vote_count.toLocaleString(undefined, {
+                    useGrouping: true,
+                  })}
+                  {movie.vote_count === 1 ? " vote" : " votes"}
+                </Votes>
+              </>
+            ) : (
               <Votes>No votes yet</Votes>
-            </Opinion>
-          )}
+            )}
+          </Opinion>
         </MainInfo>
       </Wrapper>
     </BlackBar>

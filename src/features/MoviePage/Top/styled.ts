@@ -89,96 +89,55 @@ export const Opinion = styled.section`
   height: 75px;
   display: flex;
   flex-wrap: wrap;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    height: 40px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
-    height: 18px;
-  }
-`;
-
-export const Rating = styled.div`
-  display: flex;
+  align-items: last baseline;
   gap: 8px;
-  margin-right: 7px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    gap: 6px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
-    gap: 4px;
+    height: auto;
   }
 `;
 
 export const Vector = styled.img`
   width: 40px;
-  height: 40px;
+  align-self: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 24px;
-    height: 24px;
+    align-self: start;
+    margin-right: -2px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     width: 16px;
-    height: 16px;
-    margin-top: -3px;
+    margin-right: -4px;
   }
 `;
 
-export const Text = styled.div`
+export const Rating = styled.div`
   font-size: 30px;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.3;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
     font-weight: 600;
+    margin-right: -3px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 14px;
-    line-height: 0.8;
-  }
-`;
-
-export const Ten = styled.span`
-  font-size: 16px;
-  margin-right: 35px;
-  margin-top: 19px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    margin-right: 20px;
-    margin-top: 19px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    font-size: 13px;
-    margin-right: 20px;
-    margin-top: 10px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
-    font-size: 10px;
-    margin-top: 1px;
-    margin-left: -2px;
+    margin-right: -6px;
   }
 `;
 
 export const Votes = styled.span`
   font-size: 16px;
-  margin: 10px 12px 0 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 14px;
-    margin: 9px 0 0 -6px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 10px;
-    margin: 1px 0 0 -10px;
   }
 `;

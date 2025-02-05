@@ -111,18 +111,18 @@ export const Opinion = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  line-height: 1.5;
   gap: 12px;
   margin-top: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
-    margin-top: 4px;
+    align-items: end;
+    margin-top: 6px;
     gap: 8px;
   }
 `;
 
 export const Vector = styled.img`
-  padding-bottom: 2px;
+  transform: translateY(-8%);
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
     width: 16px;

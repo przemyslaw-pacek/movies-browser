@@ -147,13 +147,12 @@ export const Opinion = styled.div`
   margin-top: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    align-items: center;
     margin-top: 8px;
   }
 `;
 
 export const Vector = styled.img`
-  align-self: start;
+  transform: translateY(12%);
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     width: 16px;
@@ -174,7 +173,6 @@ export const Votes = styled.span<{
   $hidden?: boolean;
 }>`
   font-size: 14px;
-  line-height: 1.5;
   padding-right: 4px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {

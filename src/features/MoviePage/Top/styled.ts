@@ -89,7 +89,7 @@ export const Opinion = styled.section`
   height: 75px;
   display: flex;
   flex-wrap: wrap;
-  align-items: last baseline;
+  align-items: end;
   gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
@@ -99,11 +99,9 @@ export const Opinion = styled.section`
 
 export const Vector = styled.img`
   width: 40px;
-  align-self: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 24px;
-    align-self: start;
     margin-right: -2px;
   }
 
@@ -116,7 +114,8 @@ export const Vector = styled.img`
 export const Rating = styled.div`
   font-size: 30px;
   font-weight: 500;
-  line-height: 1.3;
+
+  transform: translateY(8%);
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
@@ -135,9 +134,11 @@ export const Votes = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 14px;
+    padding-right: 4px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 10px;
+    padding-right: 2px;
   }
 `;

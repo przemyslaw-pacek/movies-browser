@@ -110,21 +110,19 @@ export const Tag = styled.li`
 export const Opinion = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: end;
   gap: 12px;
   margin-top: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
-    align-items: end;
     margin-top: 6px;
     gap: 8px;
   }
 `;
 
 export const Vector = styled.img`
-  transform: translateY(-8%);
-
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
+    transform: translateY(-8%);
     width: 16px;
   }
 `;

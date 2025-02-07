@@ -53,6 +53,7 @@ export const Image = styled.img<{
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 8px;
   flex: 1;
 `;
 
@@ -60,8 +61,6 @@ export const Title = styled.header`
   margin-top: 16px;
   font-weight: 500;
   font-size: 22px;
-  line-height: 1.3;
-  margin: 16px 0 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
     font-size: 16px;
@@ -72,12 +71,9 @@ export const Title = styled.header`
 export const Subtitle = styled.div`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
     font-size: 13px;
-    margin-bottom: 0;
   }
 `;
 
@@ -88,11 +84,6 @@ export const Tags = styled.ul`
   gap: 8px;
   padding-left: 0;
   margin: 0;
-  margin-bottom: 10px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
-    margin: 6px 0 8px;
-  }
 `;
 
 export const Tag = styled.li`
@@ -115,7 +106,6 @@ export const Opinion = styled.div`
   margin-top: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
-    margin-top: 6px;
     gap: 8px;
   }
 `;

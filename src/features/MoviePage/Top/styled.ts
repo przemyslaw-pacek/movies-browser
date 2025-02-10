@@ -85,7 +85,7 @@ export const MainTitle = styled.div`
 `;
 
 export const Opinion = styled.section`
-  width: 200px;
+  width: 136px;
   height: 75px;
   display: flex;
   flex-wrap: wrap;
@@ -93,6 +93,7 @@ export const Opinion = styled.section`
   gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: auto;
     height: auto;
   }
 `;
@@ -139,6 +140,6 @@ export const Votes = styled.span`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
     font-size: 10px;
-    padding-right: 2px;
+    padding-right: 0;
   }
 `;

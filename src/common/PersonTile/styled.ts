@@ -33,10 +33,17 @@ export const Grid = styled.div`
 `;
 
 export const StyledImage = styled.img<{
+  $hidden?: boolean;
   $noImage?: boolean;
 }>`
   width: 100%;
   border-radius: 5px;
+
+  ${({ $hidden }) =>
+    $hidden &&
+    css`
+      display: none;
+    `}
 
   ${({ $noImage }) =>
     $noImage &&

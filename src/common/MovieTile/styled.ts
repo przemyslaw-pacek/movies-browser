@@ -28,9 +28,16 @@ export const MovieNavLink = styled(NavLink)`
 `;
 
 export const Image = styled.img<{
+  $hidden?: boolean;
   $noImage?: boolean;
 }>`
   border-radius: 5px;
+
+  ${({ $hidden }) =>
+    $hidden &&
+    css`
+      display: none;
+    `}
 
   ${({ $noImage }) =>
     $noImage &&

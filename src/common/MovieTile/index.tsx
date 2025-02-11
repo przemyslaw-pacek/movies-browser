@@ -1,3 +1,6 @@
+import { useScreenWidth } from "../useScreenWidth";
+import { useState } from "react";
+import { toMovie } from "../../core/routes";
 import {
   Content,
   Image,
@@ -12,8 +15,6 @@ import {
   MovieNavLink,
 } from "./styled";
 import star from "./star.svg";
-import { useScreenWidth } from "../useScreenWidth";
-import { toMovie } from "../../core/routes";
 import { Tile } from "../../core/types";
 
 export const MovieTile = ({
@@ -27,29 +28,29 @@ export const MovieTile = ({
   votes,
 }: Tile) => {
   const isLargeScreen = useScreenWidth();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
     <MovieNavLink to={toMovie(id)}>
-      {image ? (
+      {image && (
         <Image
           src={`https://image.tmdb.org/t/p/${
             isLargeScreen ? "w342" : "w154"
           }${image}`}
           alt={title}
+          $hidden={!isImageLoaded}
+          onLoad={() => setIsImageLoaded(true)}
         />
-      ) : (
-        <Image as="div" $noImage />
       )}
+      {!isImageLoaded && <Image as="div" $noImage />}
       <Content>
         <Title>{title}</Title>
 
         <Subtitle>
           {role
-            ? year
-              ? `${role} (${new Date(year).getFullYear()})`
-              : role
+            ? `${role} ${year ? new Date(year).getFullYear() : ""}`
             : year
-            ? new Date(year).getFullYear()
+            ? `${new Date(year).getFullYear()}`
             : ""}
         </Subtitle>
 

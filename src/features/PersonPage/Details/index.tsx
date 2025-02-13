@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Name,
   PersonalData,
@@ -12,19 +13,21 @@ import { Person } from "../../../core/types";
 
 export const Details = ({ person }: { person: Person }) => {
   const isLargeScreen = useScreenWidth();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
     <Tile>
-      {person.profile_path ? (
+      {person.profile_path && (
         <Image
           src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w500" : "w185"}${
             person.profile_path
           }`}
           alt={person.name}
+          $hidden={!isImageLoaded}
+          onLoad={() => setIsImageLoaded(true)}
         />
-      ) : (
-        <Image as="div" $noImage />
       )}
+      {!isImageLoaded && <Image as="div" $noImage />}
       <PersonalData>
         <Name>{person.name}</Name>
         <Birth>

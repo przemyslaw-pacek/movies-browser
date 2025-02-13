@@ -1,4 +1,5 @@
 import { useScreenWidth } from "../../../common/useScreenWidth";
+import { useState } from "react";
 import star from "../../../common/MovieTile/star.svg";
 import {
   Content,
@@ -20,19 +21,21 @@ import { Movie } from "../../../core/types";
 
 export const Details = ({ movie }: { movie: Movie }) => {
   const isLargeScreen = useScreenWidth();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   return (
     <Tile>
-      {movie.poster_path ? (
+      {movie.poster_path && (
         <Image
           src={`https://image.tmdb.org/t/p/${isLargeScreen ? "w342" : "w154"}${
             movie.poster_path
           }`}
           alt={movie.title}
+          $hidden={!isImageLoaded}
+          onLoad={() => setIsImageLoaded(true)}
         />
-      ) : (
-        <Image as="div" $noImage />
       )}
+      {!isImageLoaded && <Image as="div" $noImage />}
       <Content>
         <Title>{movie.title}</Title>
         <Year>

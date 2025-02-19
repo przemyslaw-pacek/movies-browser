@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Wrapper,
   MainInfo,
@@ -10,26 +10,26 @@ import {
   Poster,
   Plexa,
   BlackBar,
+  Placeholder,
 } from "./styled";
 import star from "../../../common/MovieTile/star.svg";
 import plexa from "./plexa.png";
 import { Movie } from "../../../core/types";
 
 export const Top = ({ movie }: { movie: Movie }) => {
-  const url_img = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`;
   const [isPosterLoaded, setIsPosterLoaded] = useState(false);
+  const url_img = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`;
 
-  useEffect(() => {
-    const img = new Image();
-    img.src = url_img;
-    img.onload = () => setIsPosterLoaded(true);
-  }, [movie.backdrop_path, url_img]);
-
-  return isPosterLoaded ? (
+  return movie.backdrop_path ? (
     <BlackBar>
       <Wrapper>
-        <Poster src={url_img} alt={movie.title} />
         <Plexa src={plexa} alt="background" />
+        {!isPosterLoaded && <Placeholder />}
+        <Poster
+          src={url_img}
+          alt={movie.title}
+          onLoad={() => setIsPosterLoaded(true)}
+        />
         <MainInfo>
           <MainTitle>{movie.title}</MainTitle>
           <Opinion>

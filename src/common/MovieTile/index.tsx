@@ -48,7 +48,7 @@ export const MovieTile = ({
 
         <Subtitle>
           {role
-            ? `${role} ${year ? new Date(year).getFullYear() : ""}`
+            ? `${role} ${year ? `(${new Date(year).getFullYear()})` : ""}`
             : year
             ? `${new Date(year).getFullYear()}`
             : ""}

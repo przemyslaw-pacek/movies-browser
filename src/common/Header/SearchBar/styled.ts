@@ -12,16 +12,14 @@ export const Wrapper = styled.div`
   border-radius: 50px;
   padding: 0 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    width: 100%;
-    height: 46px;
-    margin-top: 20px;
-    padding: 0 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
+    margin-left: 32px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
+    width: 100%;
     height: 44px;
-    margin-top: 16px;
+    margin: 16px 0 0;
     padding: 0 16px;
   }
 `;

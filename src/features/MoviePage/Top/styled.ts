@@ -15,11 +15,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Placeholder = styled.div`
-  height: 713px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    height: 50vw;
-  }
+  position: relative;
+  padding-top: 56.25%;
 `;
 
 export const Plexa = styled.img`

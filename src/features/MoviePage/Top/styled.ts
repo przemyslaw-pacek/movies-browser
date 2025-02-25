@@ -3,15 +3,6 @@ import styled from "styled-components";
 export const BlackBar = styled.div`
   background: ${({ theme }) => theme.color.black};
   width: 100%;
-  margin-top: -56px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    margin-top: -40px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    margin-top: -24px;
-  }
 `;
 
 export const Wrapper = styled.div`
@@ -20,15 +11,7 @@ export const Wrapper = styled.div`
   position: relative;
   width: 90%;
   max-width: 1368px;
-  margin: 56px auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    margin: 40px auto;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    margin: 24px auto;
-  }
+  margin: 0 auto;
 `;
 
 export const Placeholder = styled.div`

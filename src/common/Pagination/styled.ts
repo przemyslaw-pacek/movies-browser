@@ -34,6 +34,10 @@ export const ButtonTile = styled.button`
   background: ${({ theme }) => theme.color.pattensBlue};
   cursor: pointer;
 
+  &:hover {
+    filter: brightness(90%);
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     padding: 7.5px 12px;
     gap: 4px;
@@ -42,7 +46,8 @@ export const ButtonTile = styled.button`
   &:disabled {
     color: ${({ theme }) => theme.color.waterloo};
     background: ${({ theme }) => theme.color.mystic};
-    cursor: default;
+    cursor: not-allowed;
+    filter: inherit;
   }
 `;
 

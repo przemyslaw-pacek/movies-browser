@@ -9,7 +9,11 @@ export const StyledNavigation = styled.nav`
   justify-content: space-between;
   gap: 80px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
+    gap: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     width: 100%;
     gap: 19px;
   }
@@ -22,6 +26,10 @@ export const LogoWrapper = styled(Link)`
   align-items: center;
   width: 220px;
   text-decoration: none;
+
+  &:hover {
+    scale: 1.05;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     grid-gap: 10px;
@@ -89,6 +97,14 @@ export const StyledNavLink = styled(NavLink)`
   float: left;
   padding: 13.5px 24px;
 
+  &:hover {
+    scale: 1.05;
+  }
+
+  &.active {
+    border: 1px solid ${({ theme }) => theme.color.mystic};
+    border-radius: 50px;
+  }
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 13px;
     padding: 10px 18px;
@@ -97,10 +113,5 @@ export const StyledNavLink = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 10px;
     padding: 8px 12px;
-  }
-
-  &.active {
-    border: 1px solid ${({ theme }) => theme.color.mystic};
-    border-radius: 50px;
   }
 `;

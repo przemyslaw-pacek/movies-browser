@@ -55,6 +55,10 @@ export const Button = styled(NavLink)`
   font-weight: 700;
   font-family: "Open Sans", sans-serif;
 
+  &:hover {
+    filter: brightness(120%);
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 10px;
   }

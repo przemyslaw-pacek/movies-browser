@@ -103,8 +103,7 @@ export const Vector = styled.img`
 export const Rating = styled.div`
   font-size: 30px;
   font-weight: 500;
-
-  transform: translateY(8%);
+  transform: translateY(10%);
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;

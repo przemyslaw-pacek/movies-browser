@@ -46,17 +46,21 @@ export const MovieTile = ({
       <Content>
         <Title>{title}</Title>
 
-        <Subtitle>
-          {role
-            ? `${role} ${year ? `(${new Date(year).getFullYear()})` : ""}`
-            : year
-            ? `${new Date(year).getFullYear()}`
-            : ""}
-        </Subtitle>
+        {role ? (
+          <Subtitle>
+            {role} {year && `(${new Date(year).getFullYear()})`}
+          </Subtitle>
+        ) : (
+          year && <Subtitle>{new Date(year).getFullYear()}</Subtitle>
+        )}
 
-        <Tags>
-          {genres ? genres.map((genre) => <Tag key={genre}>{genre}</Tag>) : ""}
-        </Tags>
+        {genres && (
+          <Tags>
+            {genres.map((genre) => (
+              <Tag key={genre}>{genre}</Tag>
+            ))}
+          </Tags>
+        )}
 
         <Opinion>
           {votes ? (

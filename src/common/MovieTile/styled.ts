@@ -60,7 +60,6 @@ export const Image = styled.img<{
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
   flex: 1;
 `;
 
@@ -78,6 +77,7 @@ export const Title = styled.header`
 export const Subtitle = styled.div`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 16px;
+  margin-top: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tabletPortrait}) {
     font-size: 13px;
@@ -90,7 +90,7 @@ export const Tags = styled.ul`
   flex-wrap: wrap;
   gap: 8px;
   padding-left: 0;
-  margin: 0;
+  margin: 8px 0;
 `;
 
 export const Tag = styled.li`

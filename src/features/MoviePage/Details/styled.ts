@@ -3,7 +3,7 @@ import no_poster from "../../../common/MovieTile/no_poster.svg";
 
 export const Tile = styled.article`
   width: 100%;
-  min-height: 544px;
+  min-height: 548px;
   background: ${({ theme }) => theme.color.white};
   padding: 40px;
   box-shadow: 0 4px 12px ${({ theme }) => theme.color.heater};
@@ -24,7 +24,7 @@ export const Image = styled.img<{
   $hidden?: boolean;
 }>`
   width: 312px;
-  height: 464px;
+  height: 468px;
   margin: 0 40px 20px 0;
   float: left;
   border-radius: 5px;
@@ -47,7 +47,7 @@ export const Image = styled.img<{
 
   @media(max-width: ${({ theme }) => theme.breakpoint.phone}) {
     width: 114px;
-    height: 169px;
+    height: 171px;
     margin: 0;
   }
 `;

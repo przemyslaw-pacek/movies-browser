@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import no_profile from "../../../common/PersonTile/no_profile.svg";
 
 export const Tile = styled.article`
-  min-height: 644px;
+  min-height: 548px;
   width: 100%;
   background: ${({ theme }) => theme.color.white};
   padding: 40px;
@@ -32,8 +32,8 @@ export const Image = styled.img<{
   $noImage?: boolean;
   $hidden?: boolean;
 }>`
-  width: 399px;
-  height: 564px;
+  width: 312px;
+  height: 468px;
   margin: 0 40px 20px 0;
   float: left;
   border-radius: 5px;
@@ -55,20 +55,20 @@ export const Image = styled.img<{
     `}
 
   @media(max-width: ${({ theme }) => theme.breakpoint.tabletTwo}) {
-    width: 210px;
-    height: 296px;
+    width: 198px;
+    height: 297px;
     margin: 0 32px 4px 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
-    width: 169px;
-    height: 244px;
+    width: 162px;
+    height: 243px;
     margin: 0 24px 4px 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phonePortrait}) {
-    width: 116px;
-    height: 163px;
+    width: 108px;
+    height: 162px;
     margin: 0;
   }
 `;

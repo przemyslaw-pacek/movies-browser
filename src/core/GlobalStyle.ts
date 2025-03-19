@@ -10,9 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     ::before {
         box-sizing: inherit;
     }
-    :focus {
-        outline: none;
-    }
 
     body {
         background: ${({ theme }) => theme.color.whisper};

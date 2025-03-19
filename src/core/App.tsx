@@ -9,7 +9,7 @@ import {
   Route,
   Redirect,
   Switch,
-  useHistory,
+  useLocation,
 } from "react-router-dom";
 import {
   toMovie,
@@ -22,16 +22,11 @@ import {
 import { useEffect } from "react";
 
 function ScrollToTop() {
-  const history = useHistory();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const unlisten = history.listen(() => {
-      window.scrollTo(0, 0);
-    });
-    return () => {
-      unlisten();
-    };
-  }, [history]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
 }

@@ -21,9 +21,7 @@ export const SearchBar = () => {
     <Wrapper>
       <SearchIcon />
       <SearchInput
-        placeholder={
-          isMoviesPage ? "Search for movies..." : "Search for people..."
-        }
+        placeholder={`Search for ${isMoviesPage ? "movies" : "people"}…`}
         value={query || ""}
         onChange={onInputChange}
       />

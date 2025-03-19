@@ -44,6 +44,7 @@ export const SearchInput = styled.input`
   font-weight: 400;
   line-height: 1.3;
   border: none;
+  outline: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.phone}) {
     font-size: 13px;

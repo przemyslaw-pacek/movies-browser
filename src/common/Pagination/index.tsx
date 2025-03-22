@@ -83,17 +83,9 @@ export const Pagination = () => {
 
       <CounterWrapper>
         <CounterText>Page</CounterText>
-        <CounterNumber>
-          {currentPage.toLocaleString(undefined, {
-            useGrouping: true,
-          })}
-        </CounterNumber>
+        <CounterNumber>{currentPage}</CounterNumber>
         <CounterText>of</CounterText>
-        <CounterNumber>
-          {totalPages.toLocaleString(undefined, {
-            useGrouping: true,
-          })}
-        </CounterNumber>
+        <CounterNumber>{totalPages}</CounterNumber>
       </CounterWrapper>
 
       <ButtonSection>

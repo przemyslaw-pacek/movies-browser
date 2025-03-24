@@ -1,5 +1,5 @@
 import { Container } from "../../Container";
-import { useQueryParameter } from "../../Header/SearchBar/queryParameters";
+import { useQueryParameter } from "../../queryParameters";
 import { NoResultsText, StyledImages } from "./styled";
 
 export const NoResults = () => {

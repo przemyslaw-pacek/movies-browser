@@ -1,5 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
+import {
+  useQueryParameter,
+  useReplaceQueryParameter,
+} from "../../queryParameters";
 import { Wrapper, SearchIcon, SearchInput } from "./styled";
 
 export const SearchBar = () => {

@@ -1,4 +1,4 @@
-import { useQueryParameter } from "../Header/SearchBar/queryParameters";
+import { useQueryParameter } from "../queryParameters";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";

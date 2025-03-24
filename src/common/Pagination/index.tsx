@@ -13,7 +13,7 @@ import {
   CounterNumber,
 } from "./styled";
 import { fetchSearchResults } from "../SearchResults/fetchSearchResults";
-import { useQueryParameter } from "../Header/SearchBar/queryParameters";
+import { useQueryParameter } from "../queryParameters";
 import { useQuery } from "@tanstack/react-query";
 
 export const Pagination = () => {

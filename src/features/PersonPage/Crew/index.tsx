@@ -11,7 +11,9 @@ export const Crew = ({ personCrew }: { personCrew: Movie[] }) => {
     retry: false,
   });
 
-  return personCrew && personCrew.length !== 0 ? (
+  console.log(personCrew);
+
+  return personCrew.length > 0 ? (
     <Grid>
       <Title>Movies - Crew ({personCrew.length})</Title>
       {personCrew.map((movie) => (

@@ -3,7 +3,7 @@ import { PersonTile } from "../../../common/PersonTile";
 import { Person } from "../../../core/types";
 
 export const Crew = ({ movieCrew }: { movieCrew: Person[] }) =>
-  movieCrew && movieCrew.length !== 0 ? (
+  movieCrew.length > 0 ? (
     <Grid>
       <Title>Crew</Title>
       {movieCrew.map((person) => (
